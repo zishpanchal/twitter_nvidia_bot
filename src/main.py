@@ -1,6 +1,3 @@
-import tweepy
-import schedule
-import time
 from utils import get_nvidia_price
 from api import tweet_price
 

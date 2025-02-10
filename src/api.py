@@ -1,6 +1,7 @@
 import tweepy
 import os
 from dotenv import load_dotenv
+import datetime
 
 # Load environment variables from .env file
 load_dotenv()
@@ -18,5 +19,9 @@ def tweet_price(price: str) -> None:
     api = tweepy.Client(consumer_key=consumer_key, consumer_secret=consumer_secret, access_token=access_token, access_token_secret=access_token_secret)
 
     # Create a tweet
-    tweet = f"NVIDIA Current Price: {price}"
+    now = datetime.datetime.now()
+    time = now.strftime("%I:%M %p")
+    price = float(price)
+    formatted_price = "{:.2f}".format(price)
+    tweet = f"NVIDIA Current Price: {formatted_price} as of {time}"
     api.create_tweet(text=tweet)
