@@ -2,6 +2,7 @@ import tweepy
 import os
 from dotenv import load_dotenv
 import datetime
+import pytz
 
 # Load environment variables from .env file
 load_dotenv()
@@ -19,7 +20,8 @@ def tweet_price(price: str) -> None:
     api = tweepy.Client(consumer_key=consumer_key, consumer_secret=consumer_secret, access_token=access_token, access_token_secret=access_token_secret)
 
     # Create a tweet
-    now = datetime.datetime.now()
+    new_york_timezone = pytz.timezone("America/New_York")
+    now = datetime.datetime.now(new_york_timezone)
     time = now.strftime("%I:%M %p")
     price = float(price)
     formatted_price = "{:.2f}".format(price)
