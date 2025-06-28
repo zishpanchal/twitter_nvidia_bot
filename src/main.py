@@ -1,5 +1,7 @@
 from utils import get_nvidia_price
 from api import tweet_price
+import schedule
+import time
 
 def job():
     price = get_nvidia_price()
@@ -8,11 +10,11 @@ def job():
 
 def main():
     job()
-    #schedule.every().day.at("09:00").do(job)  # Schedule the job every day at 9 AM
+    schedule.every().day.at("09:00").do(job)  # Schedule the job every day at 9 AM
 
-    #while True:
-    #    schedule.run_pending()
-    #    time.sleep(1)
+    while True:
+       schedule.run_pending()
+       time.sleep(1)
 
 if __name__ == "__main__":
     main()
