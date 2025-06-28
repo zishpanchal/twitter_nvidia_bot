@@ -3,7 +3,7 @@ from api import tweet_price
 
 def job():
     price = get_nvidia_price()
-    print(f"NVIDIA Current Price: {price}")
+    print(f"$NVDA Current Price: {price}")
     tweet_price(price)
 
 def main():

@@ -25,5 +25,5 @@ def tweet_price(price: str) -> None:
     time = now.strftime("%I:%M %p")
     price = float(price)
     formatted_price = "{:.2f}".format(price)
-    tweet = f"NVIDIA Current Price: {formatted_price} as of {time}"
+    tweet = f"$NVDA Current Price: {formatted_price} as of {time}"
     api.create_tweet(text=tweet)
